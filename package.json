@@ -12,7 +12,7 @@
     "build:href-prod": "ng build --base-href ./ --configuration production",
     "build:github": "npm run delete:docs && npm run build:href-prod && npm run copy:dist",
     "delete:docs": "del docs",
-    "copy:dist": "copyfiles dist/s5-gifs-app/browser/* ./docs -f"
+    "copy:dist": "copyfiles dist/s5-gifs-app/browser/* ./docs -f && copyfiles dist/s5-gifs-app/browser/assets/* ./docs/assets -f"
   },
   "private": true,
   "dependencies": {
