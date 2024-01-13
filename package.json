@@ -7,7 +7,12 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:s5-gifs-app": "node dist/s5-gifs-app/server/server.mjs"
+    "serve:ssr:s5-gifs-app": "node dist/s5-gifs-app/server/server.mjs",
+    "build:href": "ng build --base-href ./",
+    "build:href-prod": "ng build --base-href ./ --configuration production",
+    "build:github": "npm run delete:docs && npm run build:href-prod && npm run copy:dist",
+    "delete:docs": "del docs",
+    "copy:dist": "copyfiles dist/s5-gifs-app/browser/* ./docs -f"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +26,8 @@
     "@angular/platform-server": "^17.0.0",
     "@angular/router": "^17.0.0",
     "@angular/ssr": "^17.0.8",
+    "copyfiles": "^2.4.1",
+    "del-cli": "^5.1.0",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
